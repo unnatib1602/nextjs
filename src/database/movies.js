@@ -14,7 +14,7 @@ export const movieDB = [
     hasRating: null,
     hasReview: null
   },
-  {
+  { 
     movieName: "Chak De! India",
     moviePoster: "/chak-de-india.jpg",
     movieReleaseYear: {date: "10 August", year: 2007},
