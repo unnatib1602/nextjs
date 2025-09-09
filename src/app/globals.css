@@ -1,29 +1,28 @@
-@import "tailwindcss";
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
+  --accent: #ff6b81;
+  --glow: rgba(255, 140, 0, 0.5);
 }
 
-/* GLOBAL RESET & BASE */
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #000;
-  color: white;
+  background-color: var(--background);
+  color: var(--foreground);
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
 }
 
-/* PAGE HEADING */
+/* Heading */
 .main-heading {
   margin-top: 30px;
   font-size: 2.5rem;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: white;
+  color: var(--foreground);
   text-shadow: 2px 2px 5px orange;
 }
 
@@ -33,7 +32,7 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   gap: 30px;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 /* MOVIE CARD */
@@ -42,7 +41,7 @@ body {
   background-color: #1e1e1e;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 0 15px rgba(255, 140, 0, 0.5);
+  box-shadow: 0 0 15px var(--glow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -82,3 +81,34 @@ body {
   color: #00aaff;
 }
 
+/* ADD RATING SECTION */
+.add-rating {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.rating-btn {
+  background: transparent;
+  border: 1px solid orange;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.rating-btn:hover {
+  background: orange;
+  color: black;
+}
+
+.rating-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+  box-shadow: 0 0 12px var(--accent);
+}
