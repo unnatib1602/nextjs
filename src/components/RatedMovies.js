@@ -1,36 +1,24 @@
-// components/RatedMovies.js
-import MovieRating from './MovieRating';
+'use client';
 
 export default function RatedMovies({ movies = [] }) {
-  const getMessage = (rating) => {
-    if (rating <= 1) return 'Bad Movie 😟';
-    if (rating <= 2) return 'Decent Movie 😐';
-    if (rating <= 4) return 'Good Movie 🤗';
-    return 'Great Movie 🥳';
-  };
-
   return (
     <section>
-      <h2 style={{ color: 'white', marginBottom: 12 }}>⭐ Rated Movies</h2>
-      {movies.length === 0 ? (
-        <p style={{ color: '#ddd' }}>No rated movies yet.</p>
-      ) : (
-        <div className="movie-container">
-          {movies.map((m) => (
-            <div className="movie-card" key={m.id}>
-              <img src={m.poster} alt={m.title} className="movie-poster" />
-              <div className="movie-info">
-                <h2>{m.title}</h2>
-                <p className="release-date">({m.year})</p>
-
-                <MovieRating rating={m.rating} />
-
-                <p style={{ marginTop: 8 }}>{getMessage(m.rating)}</p>
-              </div>
+      <h2 style={{ color: 'white', marginBottom: 12 }}>Rated Movies</h2>
+      <div className="movie-container">
+        {movies.length === 0 && <p style={{ color: '#ccc' }}>No rated movies yet</p>}
+        {movies.map(m => (
+          <div key={m.id} className="movie-card" style={{ marginBottom: 20, background: '#222', padding: 12, borderRadius: 8 }}>
+            <img src={m.poster} alt={m.title} style={{ width: '100%', borderRadius: 6 }} />
+            <div style={{ marginTop: 8 }}>
+              <h2 style={{ color: '#fff' }}>{m.title}</h2>
+              <p style={{ color: '#ccc' }}>({m.year})</p>
+              <p>Rating: {m.rating}</p>
+              <p style={{ fontStyle: 'italic', color: '#ccc' }}>"{m.review}"</p>
             </div>
-          ))}
-        </div>
-      )}
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
+

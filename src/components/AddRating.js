@@ -1,4 +1,3 @@
-// components/AddRating.js
 'use client';
 import { useState } from 'react';
 
@@ -26,4 +25,5 @@ export default function AddRating({ initial = 0, onRate }) {
     </div>
   );
 }
+
 
